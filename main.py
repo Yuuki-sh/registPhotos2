@@ -68,7 +68,6 @@ if st.checkbox('※削除する場合'):
 
     delrow2 = delrow - 1
     
-    st.table(df)
     #st.data_editor(df)
     
     if del_btn:
@@ -76,7 +75,8 @@ if st.checkbox('※削除する場合'):
         st.table(droped_df)
         df = droped_df.reset_index(drop=True)
         df.to_csv("./photos/regist.csv", index=False, header=True, encoding='utf-8') #file saveS
-        
+
+st.table(df)
 st.divider()
 
 #loc = df.iloc[0, 0]

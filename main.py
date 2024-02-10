@@ -79,7 +79,7 @@ notee = "note:"
 urll = "URL:"
 
 for i, row in df.iterrows():
-    img = Image.open(f'./photos/{row['No']}_{row['loc']}.JPG')
+    img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.JPG')
     st.image(img, caption=row['loc'], use_column_width=300)
     st.text(f'{basho}') 
     st.text(f'{row['lon']}, {row['lat']}') 

@@ -57,9 +57,24 @@ with st.form(key='profile_form'):
         with open(f'./photos/{loc}_{lon}_{lat}.jpg', mode="wb") as f:
             f.write(fbytes)
 
-            
-   
+
 df = pd.read_csv("./photos/regist.csv")
+
+st.table(df)
+#st.data_editor(df)
+
+lastno =  df.iloc[-1, 0]
+
+delrow = st.selectbox('削除するNo', list(range(1, lastno+1)))
+del_btn = st.button('削除')
+
+delrow2 = delrow - 1
+
+if del_btn:
+    droped_df = df.drop(delrow2) # まずは*行目だけを削除！
+    st.table(droped_df)
+    df = droped_df.reset_index(drop=True)
+    df.to_csv("./photos/regist.csv", index=False, header=True, encoding='utf-8') #file saveS
 
 #loc = df.iloc[0, 0]
 #lon = df.iloc[0, 1]

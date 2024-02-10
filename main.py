@@ -23,7 +23,6 @@ if uploaded_file != None:
     st.image(img_array, caption="サムネイル画像", use_column_width = True)
 
 
-
 with st.form(key='profile_form'):
 
     loc = st.text_input("観光場所名")
@@ -103,6 +102,7 @@ for i, row in df.iterrows():
         st.text(f'{notee}{row["note"]}')
     if row["URL"] != "<NA>":
         st.caption(f'{urll}{row["URL"]}')
+    st.divider()
 
 
 

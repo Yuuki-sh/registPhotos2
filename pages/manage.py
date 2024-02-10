@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import csv
 
-df2 = pd.read_csv("./try/photos/regist.csv")
+df2 = pd.read_csv("../photos/regist.csv")
 st.table(df2)
 #st.data_editor(df2)
 

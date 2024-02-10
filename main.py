@@ -75,8 +75,8 @@ if st.checkbox('※削除する場合'):
         st.table(droped_df)
         df = droped_df.reset_index(drop=True)
         df.to_csv("./photos/regist.csv", index=False, header=True, encoding='utf-8') #file saveS
-        st.divider()
         
+st.divider()
 
 #loc = df.iloc[0, 0]
 #lon = df.iloc[0, 1]

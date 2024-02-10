@@ -60,12 +60,12 @@ with st.form(key='profile_form'):
 
 df = pd.read_csv("./photos/regist.csv")
 
-st.table(df)
+#st.table(df)
 #st.data_editor(df)
 
 lastno =  df.iloc[-1, 0]
-
-delrow = st.selectbox('削除するNo', list(range(1, lastno+1)))
+st.caption('※削除する場合')
+delrow = st.selectbox('No', list(range(1, lastno+1)))
 del_btn = st.button('削除')
 
 delrow2 = delrow - 1

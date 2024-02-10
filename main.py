@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np 
 #import requests
@@ -14,6 +13,8 @@ import folium
 from streamlit_folium import st_folium      # streamlitでfoliumを使う
 import branca
 
+
+st.title('画像登録')
 
 #画像取込み
 uploaded_file = st.file_uploader("画像取込み", type= "jpg")

@@ -62,7 +62,7 @@ df = pd.read_csv("./photos/regist.csv")
 lastno =  df.iloc[-1, 0]
 
 if st.checkbox('※削除する場合'):
-    delrow = st.selectbox('※削除するNo', list(range(1, lastno+1)))
+    delrow = st.selectbox('No', list(range(1, lastno+1)))
     del_btn = st.button('削除')
 
     delrow2 = delrow - 1

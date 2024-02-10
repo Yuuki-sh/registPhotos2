@@ -68,6 +68,7 @@ delrow2 = delrow - 1
 
 st.table(df)
 #st.data_editor(df)
+st.divider()
 
 if del_btn:
     droped_df = df.drop(delrow2) # まずは*行目だけを削除！

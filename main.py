@@ -80,14 +80,14 @@ urll = "URL:"
 
 for i, row in df.iterrows():
     img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.JPG')
-    st.image(img, caption=row['loc'], use_column_width=300)
+    st.image(img, caption=row["loc"], use_column_width=300)
     st.text(f'{basho}') 
-    st.text(f'{row['lon']}, {row['lat']}') 
+    st.text(f'{row["lon"]}, {row["lat"]}') 
     #st.caption(f'{notee}')
-    if row['note'] != "<NA>":
-        st.text(f'{notee}{row['note']}')
-    if row['URL'] != "<NA>":
-        st.caption(f'{urll}{row['URL']}')
+    if row["note"] != "<NA>":
+        st.text(f'{notee}{row["note"]}')
+    if row["URL"] != "<NA>":
+        st.caption(f'{urll}{row["URL"]}')
 
 
 

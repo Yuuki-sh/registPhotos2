@@ -108,7 +108,7 @@ for a, row in df.iterrows():
     img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
     html = FORMAT_IMG.format(src=img)
     iframe = branca.element.IFrame(html=html, width=325, height=325)
-    folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe)).add_to(m)  #max_width=300
+    folium.Marker(location=[{row["lon"]}, {row["lat"]}], popup=folium.Popup(iframe)).add_to(m)  #max_width=300
 
 
 st_data = st_folium(m, width=700, height=800)

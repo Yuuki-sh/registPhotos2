@@ -82,26 +82,6 @@ st.table(df)
 st.divider()
 
 
-# 地図の中心の緯度/経度、タイル、初期のズームサイズを指定します。
-m = folium.Map(
-    # 地図の中心位置の指定(今回は栃木県の県庁所在地を指定)
-    location=[36.56583, 139.88361], 
-    # タイル、アトリビュートの指定
-    tiles='https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
-    attr='都道府県庁所在地、人口、面積(2016年)',
-    # ズームを指定
-    zoom_start=6
-)
-
-img1 = 'https://www.tateshinatokyuhotel.com/experience/assets_c/2017/09/gTdiRlY2-thumb-799x533-790.jpg'
-html1 = FORMAT_IMG.format(src=img1)
-iframe1 = branca.element.IFrame(html=html1, width=250, height=250)
-folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe1, max_width=250)).add_to(m)
-
-#地図表示
-st_data = st_folium(m, width=700, height=800)
-
-
 #loc = df.iloc[0, 0]
 #lon = df.iloc[0, 1]
 #lat = df.iloc[0, 2]

@@ -78,9 +78,8 @@ if st.checkbox('※Delete  削除する'):
         df = droped_df.reset_index(drop=True)
         df.to_csv("./photos/regist.csv", index=False, header=True, encoding='utf-8') #file saveS
 
-st.table(df)
 st.divider()
-
+st.table(df)
 
 
 

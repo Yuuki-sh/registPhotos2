@@ -93,6 +93,14 @@ m = folium.Map(
     zoom_start=6
 )
 
+img1 = 'https://www.tateshinatokyuhotel.com/experience/assets_c/2017/09/gTdiRlY2-thumb-799x533-790.jpg'
+html1 = FORMAT_IMG.format(src=img1)
+iframe1 = branca.element.IFrame(html=html1, width=250, height=250)
+folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe1, max_width=250)).add_to(m)
+
+#地図表示
+st_data = st_folium(m, width=700, height=800)
+
 
 #loc = df.iloc[0, 0]
 #lon = df.iloc[0, 1]

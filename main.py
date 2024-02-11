@@ -99,10 +99,16 @@ m = folium.Map(
 #https://ken-ohwada.hatenadiary.org/entry/2023/08/08/131629
 FORMAT_IMG = '<img src="{src}" />'
 
-img1 = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
-html1 = FORMAT_IMG.format(src=img1)
-iframe1 = branca.element.IFrame(html=html1, width=340, height=340)
-folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe1)).add_to(m)  #max_width=300
+#img1 = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
+#html1 = FORMAT_IMG.format(src=img1)
+#iframe1 = branca.element.IFrame(html=html1, width=340, height=340)
+#folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe1)).add_to(m)  #max_width=300
+
+for a, row in df.iterrows():
+    img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
+    html = FORMAT_IMG.format(src=img)
+    iframe = branca.element.IFrame(html=html, width=325, height=325)
+    folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe)).add_to(m)  #max_width=300
 
 
 st_data = st_folium(m, width=700, height=800)

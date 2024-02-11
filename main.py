@@ -100,8 +100,7 @@ m = folium.Map(
 #https://ken-ohwada.hatenadiary.org/entry/2023/08/08/131629
 FORMAT_IMG = '<img src="{src}" />'
 
-#img1 = 'https://lh3.googleusercontent.com/pw/ABLVV877YBko63NJIhLVRzIXfz6PSg7q-HOMNKGHUG_vFGLHyfqOgRjZ0ZvjPfXnkb3Fz7LLpI5eaRSWJwnvY_pGk25Zr1eWbgo3hEmjrswWycIj89AV61eHMwp-IWvrPgJUb6iVYGOQdCxvwemh47SeIigHCmGG8vUMbZxICaha50IRJFmpmJvC7fZOPNowAebDza_YnVutVe5uwxlRn9UECEet0Wt4pICRPz8S8xBpbkd8UHVdbAk48zaHBuA-fH-mfmBuXtCZ2C8avifXOx4lNY2wl6IZYPo8nugT80sk0smfhbxApe0c9OAMsxF3hhjCj_ZhRuOzb4Nse2Oi3aSM_PwD0SGXmL_OzbHdbsd71mVEawuccP-uSNnj7p1qQ1iKyV-hZ15RWg9hD1RFW-rKsB1eRJkJy8Fgj9gdM_blbORBcr6Mg05GsUIMfHJIvK5qr3wlOOav544tHVnn2Ia8CzK3YMHP3RKHJUmXDk6xa9Xl9kcl-kno_aVrlFssQJ43hDAJKCygCgmSSqXq1MVLgwNcS8tdObxte4mOSyBgLQYj2g7EaalphdgddXhicwV9bs4Ej9eO08oP5idxjyHIQhrazfxlfEsUTPhqHMm3hBHwH4vNqKnPPFWtp2Y0NA_2Cyb_0Q2sSUreJ9aNGdEXOCvnkP9wCPf5l5IZEMVsNQ8VGCeJq-x2_9eVsYzjItruFZyTBHvHaxTUaeu6wF1NaaNNaSeqiaCqnN56ElnRwn3z_DBBlRYLYrE8yMJI5cQ-EhhN6JqmQHGlthrlRUU507q21k5DqlLAJW668P7e5CUlRgA8taU88qZ9rgeOb5SdOrv1vSKFXBAbSZvJDSdgJzywVfZ6x3LhRnQQQnJBsF61N1GL58fYoCSq4uX2AIVzfXNMBqEdvYKoKqI1c9hmT0GE3Uk0zGoTeGREv7Zvns07-TnmA5kiB-CYhis=w226-h225-s-no-gm?authuser=0'
-img1 = 'https://registphotos-n7squslrhundwwa8esakgd.streamlit.app/~/+/media/b6545dc2bc2f28b781e517580ffb7e7e0deafa410740e807625fc964.jpg'
+img1 = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
 html1 = FORMAT_IMG.format(src=img1)
 iframe1 = branca.element.IFrame(html=html1, width=340, height=340)
 folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe1)).add_to(m)  #max_width=300

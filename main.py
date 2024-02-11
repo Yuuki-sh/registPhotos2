@@ -16,27 +16,28 @@ import branca
 
 st.title('Recommended Places')
 
-if st.checkbox('※Registration  登録する'):
+if st.checkbox('※Registration,  登録する'):
     #画像取込み
-    uploaded_file = st.file_uploader("画像取込み", type= "jpg")
+    uploaded_file = st.file_uploader("send a picture,  画像取込み", type= "jpg")
     if uploaded_file != None:
         image = Image.open(uploaded_file)
         img_array = np.array(image)
-        st.image(img_array, caption="サムネイル画像", use_column_width = True)
+        st.image(img_array, caption="thumbnail image,  サムネイル画像", use_column_width = True)
     
     
     with st.form(key='profile_form'):
     
-        loc = st.text_input("観光場所名")
-        lon = st.text_input("経度")
-        lat = st.text_input("緯度")
-        note = st.text_input("感想")
-        url = st.text_input("参考URL")
+        loc = st.text_input("Place name  観光場所名")
+        lon = st.text_input("Longitude  経度")
+        lat = st.text_input("Latitude緯度")
+        note = st.text_input("Thoughts  感想")
+        url = st.text_input("Reference picure  参考URL")
     
         #ﾎﾞﾀﾝ
-        submit_btn = st.form_submit_button('登録')
-        cancel_btn = st.form_submit_button('キャンセル')
+        submit_btn = st.form_submit_button('Registration  登録')
+        cancel_btn = st.form_submit_button('Cancel  キャンセル')
         if submit_btn:
+            st.text(f'I added the location and photo to the map.')
             st.text(f'マップに場所と写真登録しました')
     
             dfnoo = pd.read_csv("./photos/regist.csv")

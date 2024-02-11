@@ -14,55 +14,56 @@ from streamlit_folium import st_folium      # streamlitでfoliumを使う
 import branca
 
 
-st.title('画像登録')
+st.title('Recommended Places')
 
-#画像取込み
-uploaded_file = st.file_uploader("画像取込み", type= "jpg")
-if uploaded_file != None:
-    image = Image.open(uploaded_file)
-    img_array = np.array(image)
-    st.image(img_array, caption="サムネイル画像", use_column_width = True)
-
-
-with st.form(key='profile_form'):
-
-    loc = st.text_input("観光場所名")
-    lon = st.text_input("経度")
-    lat = st.text_input("緯度")
-    note = st.text_input("感想")
-    url = st.text_input("参考URL")
-
-    #ﾎﾞﾀﾝ
-    submit_btn = st.form_submit_button('登録')
-    cancel_btn = st.form_submit_button('キャンセル')
-    if submit_btn:
-        st.text(f'マップに場所と写真登録しました')
-
-        dfnoo = pd.read_csv("./photos/regist.csv")
-        noo = dfnoo.iloc[-1, 0] + 1
-        #dfnoo.close()
-
-        #入力したものをリストに代入する
-        data = [[noo, loc, lon, lat, note, url]]
-
-        #csvへの項目追記
-        with open('./photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            for row in data:
-                writer.writerow(row)
-        
-        #ファイルをクライアントから受ける
-        fbytes = uploaded_file.getvalue()
-        #modeをwb（バイナリ書き込みモード）にする。encodingを指定するとえらーになる
-        with open(f'./photos/{loc}_{lon}_{lat}.jpg', mode="wb") as f:
-            f.write(fbytes)
+if st.checkbox('※Registration  登録する'):
+    #画像取込み
+    uploaded_file = st.file_uploader("画像取込み", type= "jpg")
+    if uploaded_file != None:
+        image = Image.open(uploaded_file)
+        img_array = np.array(image)
+        st.image(img_array, caption="サムネイル画像", use_column_width = True)
+    
+    
+    with st.form(key='profile_form'):
+    
+        loc = st.text_input("観光場所名")
+        lon = st.text_input("経度")
+        lat = st.text_input("緯度")
+        note = st.text_input("感想")
+        url = st.text_input("参考URL")
+    
+        #ﾎﾞﾀﾝ
+        submit_btn = st.form_submit_button('登録')
+        cancel_btn = st.form_submit_button('キャンセル')
+        if submit_btn:
+            st.text(f'マップに場所と写真登録しました')
+    
+            dfnoo = pd.read_csv("./photos/regist.csv")
+            noo = dfnoo.iloc[-1, 0] + 1
+            #dfnoo.close()
+    
+            #入力したものをリストに代入する
+            data = [[noo, loc, lon, lat, note, url]]
+    
+            #csvへの項目追記
+            with open('./photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                for row in data:
+                    writer.writerow(row)
+            
+            #ファイルをクライアントから受ける
+            fbytes = uploaded_file.getvalue()
+            #modeをwb（バイナリ書き込みモード）にする。encodingを指定するとえらーになる
+            with open(f'./photos/{loc}_{lon}_{lat}.jpg', mode="wb") as f:
+                f.write(fbytes)
 
 
 df = pd.read_csv("./photos/regist.csv")
 
 lastno =  df.iloc[-1, 0]
 
-if st.checkbox('※削除する場合'):
+if st.checkbox('※Delete  削除する'):
     delrow = st.selectbox('No', list(range(1, lastno+1)))
     del_btn = st.button('削除')
 
@@ -78,6 +79,19 @@ if st.checkbox('※削除する場合'):
 
 st.table(df)
 st.divider()
+
+
+# 地図の中心の緯度/経度、タイル、初期のズームサイズを指定します。
+m = folium.Map(
+    # 地図の中心位置の指定(今回は栃木県の県庁所在地を指定)
+    location=[36.56583, 139.88361], 
+    # タイル、アトリビュートの指定
+    tiles='https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
+    attr='都道府県庁所在地、人口、面積(2016年)',
+    # ズームを指定
+    zoom_start=6
+)
+
 
 #loc = df.iloc[0, 0]
 #lon = df.iloc[0, 1]

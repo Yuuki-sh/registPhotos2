@@ -148,6 +148,10 @@ for i, row in df.iterrows():
         st.text(f'{notee}{row["note"]}')
     if row["URL"] != "<NA>":
         st.caption(f'{urll}{row["URL"]}')
+    trans = st.form_submit_button('Move  移動')
+    if strans:
+        translate = [[row["lon"], row["lat"]]]
+    
     st.divider()
 
 

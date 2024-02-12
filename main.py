@@ -114,7 +114,7 @@ for a, row in df.iterrows():
                   popup=folium.Popup(pop, max_width=300)
                  ).add_to(m)  #max_width=300
 
-st_data = st_folium(m, width=700, height=600)
+st_data = st_folium(m, width=700, height=550)
 
 
 

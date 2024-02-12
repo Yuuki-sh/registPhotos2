@@ -148,8 +148,6 @@ for i, row in df.iterrows():
         st.text(f'{notee}{row["note"]}')
     if row["URL"] != "<NA>":
         st.caption(f'{urll}{row["URL"]}')
-    trans = st.button('Move  移動')
-    
     st.divider()
 
 

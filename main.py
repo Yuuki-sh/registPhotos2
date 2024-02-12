@@ -129,10 +129,10 @@ st_data = st_folium(m, width=700, height=800)
 #if url != "":
 #    st.caption(f'{url}')
 
-noo = "No:"
-basho = "lon, lat:"
-notee = "note:"
-urll = "URL:"
+noo = "No:  "
+basho = "lon, lat:  "
+notee = "note:  "
+urll = "URL:  "
 
 for i, row in df.iterrows():
     img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.jpg')

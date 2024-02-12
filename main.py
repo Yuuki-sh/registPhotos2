@@ -129,6 +129,7 @@ st_data = st_folium(m, width=700, height=800)
 #if url != "":
 #    st.caption(f'{url}')
 
+noo = "No:"
 basho = "lon, lat:"
 notee = "note:"
 urll = "URL:"
@@ -136,8 +137,8 @@ urll = "URL:"
 for i, row in df.iterrows():
     img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.jpg')
     st.image(img, caption=row["loc"], use_column_width=300)
-    st.text(f'{basho}') 
-    st.text(f'{row["lon"]}, {row["lat"]}') 
+    st.text(f'{noo}{row["No"]}') 
+    st.text(f'{basho}{row["lon"]}, {row["lat"]}') 
     #st.caption(f'{notee}')
     if row["note"] != "<NA>":
         st.text(f'{notee}{row["note"]}')

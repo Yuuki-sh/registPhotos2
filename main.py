@@ -81,7 +81,6 @@ st.divider()
 #st.table(df)
 
 
-df = pd.read_csv("./photos/regist.csv")
 
 # 地図の中心の緯度/経度、タイル、初期のズームサイズを指定します。
 m = folium.Map(
@@ -103,22 +102,25 @@ FORMAT_IMG = '<img src="{src}" />'
 #folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe1)).add_to(m)  #max_width=300
 
 
+noo = "No:  "
+basho = "lon, lat:  "
+notee = "note:  "
+urll = "URL:  "
 
-for a, row in df.iterrows():
-    #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
-    #html = FORMAT_IMG.format(src=img)
-    #iframe = branca.element.IFrame(html=html, width=325, height=325)
-    #folium.Marker(location=[row["lon"], row["lat"]], popup=folium.Popup(iframe)).add_to(m)  #max_width=300
+with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
 
-    pop=f"No:{row['No']}, {row['loc']}"
-    folium.Marker(location=[row["lon"], row["lat"]], 
-                  popup=folium.Popup(pop, max_width=300)
-                 ).add_to(m)  #max_width=300
-
-st_data = st_folium(m, width=700, height=550)
-
-
-
+    for a, row in df.iterrows():
+        #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
+        #html = FORMAT_IMG.format(src=img)
+        #iframe = branca.element.IFrame(html=html, width=325, height=325)
+        #folium.Marker(location=[row["lon"], row["lat"]], popup=folium.Popup(iframe)).add_to(m)  #max_width=300
+    
+        pop=f"No:{row['No']}, {row['loc']}"
+        folium.Marker(location=[row["lon"], row["lat"]], 
+                      popup=folium.Popup(pop, max_width=300)
+                     ).add_to(m)  #max_width=300
+    
+    st_data = st_folium(m, width=700, height=550)
 
 
 #loc = df.iloc[0, 0]
@@ -134,22 +136,18 @@ st_data = st_folium(m, width=700, height=550)
 #if url != "":
 #    st.caption(f'{url}')
 
-noo = "No:  "
-basho = "lon, lat:  "
-notee = "note:  "
-urll = "URL:  "
 
-for i, row in df.iterrows():
-    img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.jpg')
-    st.image(img, caption=row["loc"], use_column_width=300)
-    st.text(f'{noo}{row["No"]}') 
-    st.text(f'{basho}{row["lon"]}, {row["lat"]}') 
-    #st.caption(f'{notee}')
-    if row["note"] != "<NA>":
-        st.text(f'{notee}{row["note"]}')
-    if row["URL"] != "<NA>":
-        st.caption(f'{urll}{row["URL"]}')
-    st.divider()
+    for i, row in df.iterrows():
+        img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.jpg')
+        st.image(img, caption=row["loc"], use_column_width=300)
+        st.text(f'{noo}{row["No"]}') 
+        st.text(f'{basho}{row["lon"]}, {row["lat"]}') 
+        #st.caption(f'{notee}')
+        if row["note"] != "<NA>":
+            st.text(f'{notee}{row["note"]}')
+        if row["URL"] != "<NA>":
+            st.caption(f'{urll}{row["URL"]}')
+        st.divider()
 
 
 

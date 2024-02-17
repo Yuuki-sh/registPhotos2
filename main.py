@@ -81,7 +81,7 @@ st.divider()
 #st.table(df)
 
 
-
+df = pd.read_csv("./photos/regist.csv")
 
 # 地図の中心の緯度/経度、タイル、初期のズームサイズを指定します。
 m = folium.Map(
@@ -101,6 +101,8 @@ FORMAT_IMG = '<img src="{src}" />'
 #html1 = FORMAT_IMG.format(src=img1)
 #iframe1 = branca.element.IFrame(html=html1, width=340, height=340)
 #folium.Marker(location=[36.65139, 138.18111], popup=folium.Popup(iframe1)).add_to(m)  #max_width=300
+
+
 
 for a, row in df.iterrows():
     #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'

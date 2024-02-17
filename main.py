@@ -60,7 +60,7 @@ with st.form(key='profile_form'):
             f.write(fbytes)
 
 
-df = pd.read_csv("./photos/regist.csv")
+#df = pd.read_csv("./photos/regist.csv")
 
 lastno =  df.iloc[-1, 0]
 

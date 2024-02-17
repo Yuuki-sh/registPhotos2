@@ -40,11 +40,11 @@ with st.form(key='profile_form'):
         st.text(f'I added the location and photo to the map.')
         st.text(f'マップに場所と写真登録しました')
 
-        #dfnoo = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
-        #noo = dfnoo.iloc[-1, 0] + 1
+        dfnoo = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
+        noo = dfnoo.iloc[-1, 0] + 1
         #dfnoo.close()
         #入力したものをリストに代入する
-        data = [["" , loc, lon, lat, note, url]]   
+        data = [[noo , loc, lon, lat, note, url]]   
         
         #csvへの項目追記
         with open('/mount/src/registphotos2/photos/regist.csv', 'a', newline='', encoding='utf-8') as f:

@@ -44,10 +44,10 @@ with st.form(key='profile_form'):
         
         #csvへの項目追記
         with open('/mount/src/registphotos2/photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
             noo = f.iloc[-1, 0] + 1
             #入力したものをリストに代入する
-            data = [[noo, loc, lon, lat, note, url]]   
+            data = [[noo, loc, lon, lat, note, url]]    
+            writer = csv.writer(f)
             for row in data:
                 writer.writerow(row)
         

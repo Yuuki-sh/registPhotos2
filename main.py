@@ -107,20 +107,21 @@ basho = "lon, lat:  "
 notee = "note:  "
 urll = "URL:  "
 
-with open('/mount/src/registphotos2/photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
 
-    for a, row in df.iterrows():
-        #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
-        #html = FORMAT_IMG.format(src=img)
-        #iframe = branca.element.IFrame(html=html, width=325, height=325)
-        #folium.Marker(location=[row["lon"], row["lat"]], popup=folium.Popup(iframe)).add_to(m)  #max_width=300
-    
-        pop=f"No:{row['No']}, {row['loc']}"
-        folium.Marker(location=[row["lon"], row["lat"]], 
-                      popup=folium.Popup(pop, max_width=300)
-                     ).add_to(m)  #max_width=300
-    
-    st_data = st_folium(m, width=700, height=550)
+df = pd.read_csv('/mount/src/registphotos2/photos/regist.csv',)
+
+for a, row in df.iterrows():
+    #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
+    #html = FORMAT_IMG.format(src=img)
+    #iframe = branca.element.IFrame(html=html, width=325, height=325)
+    #folium.Marker(location=[row["lon"], row["lat"]], popup=folium.Popup(iframe)).add_to(m)  #max_width=300
+
+    pop=f"No:{row['No']}, {row['loc']}"
+    folium.Marker(location=[row["lon"], row["lat"]], 
+                  popup=folium.Popup(pop, max_width=300)
+                 ).add_to(m)  #max_width=300
+
+st_data = st_folium(m, width=700, height=550)
 
 
 #loc = df.iloc[0, 0]
@@ -137,17 +138,17 @@ with open('/mount/src/registphotos2/photos/regist.csv', 'r', newline='', encodin
 #    st.caption(f'{url}')
 
 
-    for i, row in df.iterrows():
-        img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.jpg')
-        st.image(img, caption=row["loc"], use_column_width=300)
-        st.text(f'{noo}{row["No"]}') 
-        st.text(f'{basho}{row["lon"]}, {row["lat"]}') 
-        #st.caption(f'{notee}')
-        if row["note"] != "<NA>":
-            st.text(f'{notee}{row["note"]}')
-        if row["URL"] != "<NA>":
-            st.caption(f'{urll}{row["URL"]}')
-        st.divider()
+for i, row in df.iterrows():
+    img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.jpg')
+    st.image(img, caption=row["loc"], use_column_width=300)
+    st.text(f'{noo}{row["No"]}') 
+    st.text(f'{basho}{row["lon"]}, {row["lat"]}') 
+    #st.caption(f'{notee}')
+    if row["note"] != "<NA>":
+        st.text(f'{notee}{row["note"]}')
+    if row["URL"] != "<NA>":
+        st.caption(f'{urll}{row["URL"]}')
+    st.divider()
 
 
 

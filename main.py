@@ -59,7 +59,7 @@ with st.form(key='profile_form'):
             f.write(fbytes)
 
 
-df = pd.read_csv("./photos/regist.csv")
+df = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
 lastno =  df.iloc[-1, 0]
 
 #if st.checkbox('※Delete  削除する'):

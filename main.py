@@ -37,10 +37,9 @@ with st.form(key='profile_form'):
     submit_btn = st.form_submit_button('Registration  登録')
     cancel_btn = st.form_submit_button('Cancel  キャンセル')
     if submit_btn:
-        with open('/mount/src/registphotos2/photos/regist.csv', 'r', newline='', encoding='utf-8') as dfnoo:
-            dfnoo = pd.read_csv("./photos/regist.csv")
-            noo = dfnoo.iloc[-1, 0] + 1
-            #dfnoo.close()
+        dfnoo = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
+        noo = dfnoo.iloc[-1, 0] + 1
+        
         #入力したものをリストに代入する
         data = [[noo, loc, lon, lat, note, url]]   
         

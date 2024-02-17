@@ -41,12 +41,11 @@ with st.form(key='profile_form'):
         #noo = dfnoo.iloc[-1, 0] + 1
         #入力したものをリストに代入する
         #data = [[noo, loc, lon, lat, note, url]]   
+        #入力したものをリストに代入する 
+        data = [["No", loc, lon, lat, note, url]]  
         
         #csvへの項目追記
         with open('/mount/src/registphotos2/photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
-            noo = f.iloc[-1, 0] + 1
-            #入力したものをリストに代入する
-            data = [[noo, loc, lon, lat, note, url]]    
             writer = csv.writer(f)
             for row in data:
                 writer.writerow(row)

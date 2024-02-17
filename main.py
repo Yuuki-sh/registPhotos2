@@ -107,7 +107,7 @@ basho = "lon, lat:  "
 notee = "note:  "
 urll = "URL:  "
 
-with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
+with open('/mount/src/registphotos2/photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
 
     for a, row in df.iterrows():
         #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'

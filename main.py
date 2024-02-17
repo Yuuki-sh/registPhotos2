@@ -108,9 +108,9 @@ notee = "note:  "
 urll = "URL:  "
 
 
-df = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
+df2 = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
 
-for a, row in df.iterrows():
+for a, row in df2.iterrows():
     #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'
     #html = FORMAT_IMG.format(src=img)
     #iframe = branca.element.IFrame(html=html, width=325, height=325)
@@ -124,11 +124,11 @@ for a, row in df.iterrows():
 st_data = st_folium(m, width=700, height=550)
 
 
-#loc = df.iloc[0, 0]
-#lon = df.iloc[0, 1]
-#lat = df.iloc[0, 2]
-#note = df.iloc[0, 3]
-#url = df.iloc[0, 4]
+#loc = df2.iloc[0, 0]
+#lon = df2.iloc[0, 1]
+#lat = df2.iloc[0, 2]
+#note = df2.iloc[0, 3]
+#url = df2.iloc[0, 4]
 #img01 = Image.open(f'./photos/{loc}_{lon}_{lat}.JPG')
 #st.image(img01, caption=loc, use_column_width=300)
 #st.caption(f'{lon}, {lat}')
@@ -138,7 +138,7 @@ st_data = st_folium(m, width=700, height=550)
 #    st.caption(f'{url}')
 
 
-for i, row in df.iterrows():
+for i, row in df2.iterrows():
     img = Image.open(f'./photos/{row["No"]}_{row["loc"]}.jpg')
     st.image(img, caption=row["loc"], use_column_width=300)
     st.text(f'{noo}{row["No"]}') 

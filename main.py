@@ -18,46 +18,46 @@ st.title('Recommended Places')
 
 #if st.checkbox('※Registration,  登録する'):
 #画像取込み
-uploaded_file = st.file_uploader("send a picture,  画像取込み", type= "jpg")
-if uploaded_file != None:
-    image = Image.open(uploaded_file)
-    img_array = np.array(image)
-    st.image(img_array, caption="thumbnail image,  サムネイル画像", use_column_width = True)
+#uploaded_file = st.file_uploader("send a picture,  画像取込み", type= "jpg")
+#if uploaded_file != None:
+#    image = Image.open(uploaded_file)
+#    img_array = np.array(image)
+#    st.image(img_array, caption="thumbnail image,  サムネイル画像", use_column_width = True)
     
     
-with st.form(key='profile_form'):
+#with st.form(key='profile_form'):
 
-    loc = st.text_input("Place name  観光場所名")
-    lon = st.text_input("Longitude  経度")
-    lat = st.text_input("Latitude緯度")
-    note = st.text_input("Thoughts  感想")
-    url = st.text_input("Reference picure  参考URL")
+#    loc = st.text_input("Place name  観光場所名")
+#    lon = st.text_input("Longitude  経度")
+#    lat = st.text_input("Latitude緯度")
+#    note = st.text_input("Thoughts  感想")
+#    url = st.text_input("Reference picure  参考URL")
     
     #ﾎﾞﾀﾝ
-    submit_btn = st.form_submit_button('Registration  登録')
-    cancel_btn = st.form_submit_button('Cancel  キャンセル')
-    if submit_btn:
-        #dfnoo = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
-        #noo = dfnoo.iloc[-1, 0] + 1
-        #入力したものをリストに代入する
-        #data = [[noo, loc, lon, lat, note, url]]   
-        #入力したものをリストに代入する 
-        data = [["No", loc, lon, lat, note, url]]  
+#    submit_btn = st.form_submit_button('Registration  登録')
+#    cancel_btn = st.form_submit_button('Cancel  キャンセル')
+#    if submit_btn:
+#        #dfnoo = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
+#        #noo = dfnoo.iloc[-1, 0] + 1
+#        #入力したものをリストに代入する
+#        #data = [[noo, loc, lon, lat, note, url]]   
+#        #入力したものをリストに代入する 
+#        data = [["No", loc, lon, lat, note, url]]  
         
-        #csvへの項目追記
-        with open('/mount/src/registphotos2/photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            for row in data:
-                writer.writerow(row)
+#        #csvへの項目追記
+#        with open('/mount/src/registphotos2/photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
+#            writer = csv.writer(f)
+#            for row in data:
+#                writer.writerow(row)
         
-        #ファイルをクライアントから受ける
-        fbytes = uploaded_file.getvalue()
-        #modeをwb（バイナリ書き込みモード）にする。encodingを指定するとえらーになる
-        with open(f'./photos/{loc}_{lon}_{lat}.jpg', mode="wb") as f:
-            f.write(fbytes)
+#        #ファイルをクライアントから受ける
+#        fbytes = uploaded_file.getvalue()
+#        #modeをwb（バイナリ書き込みモード）にする。encodingを指定するとえらーになる
+#        with open(f'./photos/{loc}_{lon}_{lat}.jpg', mode="wb") as f:
+#            f.write(fbytes)
 
-        st.text(f'I added the location and photo to the map.')
-        st.text(f'マップに場所と写真登録しました')
+#        st.text(f'I added the location and photo to the map.')
+#        st.text(f'マップに場所と写真登録しました')
 
 
 #with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as df:

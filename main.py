@@ -37,8 +37,8 @@ with st.form(key='profile_form'):
     submit_btn = st.form_submit_button('Registration  登録')
     cancel_btn = st.form_submit_button('Cancel  キャンセル')
     if submit_btn:
-        dfnoo = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
-        noo = dfnoo.iloc[-1, 0] + 1
+        #dfnoo = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
+        #noo = dfnoo.iloc[-1, 0] + 1
         
         #入力したものをリストに代入する
         data = [[noo, loc, lon, lat, note, url]]   
@@ -46,6 +46,9 @@ with st.form(key='profile_form'):
         #csvへの項目追記
         with open('/mount/src/registphotos2/photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
+            noo = f.iloc[-1, 0] + 1
+            #入力したものをリストに代入する
+            data = [[noo, loc, lon, lat, note, url]]   
             for row in data:
                 writer.writerow(row)
         

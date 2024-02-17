@@ -59,9 +59,9 @@ with st.form(key='profile_form'):
         with open(f'./photos/{loc}_{lon}_{lat}.jpg', mode="wb") as f:
             f.write(fbytes)
 
-with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
-    #df = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
-    lastno =  df.iloc[-1, 0]
+#with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
+#    #df = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
+#    lastno =  df.iloc[-1, 0]
 
 #if st.checkbox('※Delete  削除する'):
 #    delrow = st.selectbox('No', list(range(1, lastno+1)))
@@ -78,7 +78,7 @@ with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
 #        df.to_csv("./photos/regist.csv", index=False, header=True, encoding='utf-8') #file saveS
 
 st.divider()
-st.table(df)
+#st.table(df)
 
 
 

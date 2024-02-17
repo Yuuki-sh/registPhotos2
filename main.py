@@ -42,8 +42,8 @@ with st.form(key='profile_form'):
 
         dfnoo = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
         noo = dfnoo.iloc[-1, 0] + 1
+        #dfnoo.close()
         #入力したものをリストに代入する
-        dfnoo.close()
         data = [[noo, loc, lon, lat, note, url]]   
         
         #csvへの項目追記

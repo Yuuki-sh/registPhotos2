@@ -37,18 +37,15 @@ with st.form(key='profile_form'):
     submit_btn = st.form_submit_button('Registration  登録')
     cancel_btn = st.form_submit_button('Cancel  キャンセル')
     if submit_btn:
-        st.text(f'I added the location and photo to the map.')
-        st.text(f'マップに場所と写真登録しました')
-
-        with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as dfnoo:
+        with open('/mount/src/registphotos2/photos/regist.csv', 'r', newline='', encoding='utf-8') as dfnoo:
             dfnoo = pd.read_csv("./photos/regist.csv")
             noo = dfnoo.iloc[-1, 0] + 1
             #dfnoo.close()
         #入力したものをリストに代入する
-        data = [[noo , loc, lon, lat, note, url]]   
+        data = [[noo, loc, lon, lat, note, url]]   
         
         #csvへの項目追記
-        with open('./photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
+        with open('/mount/src/registphotos2/photos/regist.csv', 'a', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             for row in data:
                 writer.writerow(row)
@@ -58,6 +55,10 @@ with st.form(key='profile_form'):
         #modeをwb（バイナリ書き込みモード）にする。encodingを指定するとえらーになる
         with open(f'./photos/{loc}_{lon}_{lat}.jpg', mode="wb") as f:
             f.write(fbytes)
+
+        st.text(f'I added the location and photo to the map.')
+        st.text(f'マップに場所と写真登録しました')
+
 
 #with open('./photos/regist.csv', 'r', newline='', encoding='utf-8') as df:
 #    #df = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
@@ -108,7 +109,7 @@ notee = "note:  "
 urll = "URL:  "
 
 
-df = pd.read_csv('/mount/src/registphotos2/photos/regist.csv',)
+df = pd.read_csv('/mount/src/registphotos2/photos/regist.csv')
 
 for a, row in df.iterrows():
     #img = 'https://skima-shinshu.com/wp-content/uploads/2019/08/P8051140-768x512.jpg'

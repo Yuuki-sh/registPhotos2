@@ -60,22 +60,22 @@ with st.form(key='profile_form'):
             f.write(fbytes)
 
 
-df = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
-lastno =  df.iloc[-1, 0]
+#df = pd.read_csv("/mount/src/registphotos2/photos/regist.csv")
+#lastno =  df.iloc[-1, 0]
 
 #if st.checkbox('※Delete  削除する'):
-delrow = st.selectbox('No', list(range(1, lastno+1)))
-del_btn = st.button('削除')
-
-delrow2 = delrow - 1
-
-#st.data_editor(df)
-
-if del_btn:
-    droped_df = df.drop(delrow2) # まずは*行目だけを削除！
-    st.table(droped_df)
-    df = droped_df.reset_index(drop=True)
-    df.to_csv("./photos/regist.csv", index=False, header=True, encoding='utf-8') #file saveS
+#    delrow = st.selectbox('No', list(range(1, lastno+1)))
+#    del_btn = st.button('削除')
+    
+#    delrow2 = delrow - 1
+    
+#    #st.data_editor(df)
+    
+#    if del_btn:
+#        droped_df = df.drop(delrow2) # まずは*行目だけを削除！
+#        st.table(droped_df)
+#        df = droped_df.reset_index(drop=True)
+#        df.to_csv("./photos/regist.csv", index=False, header=True, encoding='utf-8') #file saveS
 
 st.divider()
 st.table(df)
